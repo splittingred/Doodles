@@ -5,9 +5,10 @@
  * @package doodles
  * @subpackage controllers
  */
-$modx->regClientStartupScript($tlc->config['jsUrl'].'mgr/widgets/doodles.panel.js');
-$modx->regClientStartupScript($tlc->config['jsUrl'].'mgr/sections/index.js');
+$modx->regClientStartupScript($doodles->config['jsUrl'].'mgr/widgets/doodles.grid.js');
+$modx->regClientStartupScript($doodles->config['jsUrl'].'mgr/widgets/home.panel.js');
+$modx->regClientStartupScript($doodles->config['jsUrl'].'mgr/sections/index.js');
 
-$output = '<div id="tlc-panel-home-div"></div>';
+$output = '<div id="doodles-panel-home-div"></div>';
 
 return $output;

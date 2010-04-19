@@ -42,7 +42,7 @@ class doodlesControllerRequest extends modRequest {
     protected function _prepareResponse() {
         $modx =& $this->modx;
         $doodles =& $this->doodles;
-        $viewHeader = include $this->tlc->config['corePath'].'controllers/mgr/header.php';
+        $viewHeader = include $this->doodles->config['corePath'].'controllers/mgr/header.php';
 
         $f = $this->doodles->config['corePath'].'controllers/mgr/'.$this->action.'.php';
         if (file_exists($f)) {
