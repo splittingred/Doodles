@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="doodles" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM">
+    <object class="Doodle" table="doodles" extends="xPDOSimpleObject">
+        <field key="name" dbtype="varchar" precision="255" phptype="string" null="false" default="" />
+        <field key="description" dbtype="text" phptype="string" null="false" default="" />
+	<field key="location" dbtype="text" phptype="string" null="false" default="" />
+        <field key="downloads" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" />
+    </object>
+</model>
