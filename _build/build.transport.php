@@ -56,12 +56,6 @@ $snippets = include $sources['data'].'transport.snippets.php';
 if (empty($snippets)) $modx->log(modX::LOG_LEVEL_ERROR,'Could not package in snippets.');
 $category->addMany($snippets);
 
-/* add chunks */
-$modx->log(modX::LOG_LEVEL_INFO,'Packaging in chunks...');
-$chunks = include $sources['data'].'transport.chunks.php';
-if (empty($chunks)) $modx->log(modX::LOG_LEVEL_ERROR,'Could not package in chunks.');
-$category->addMany($chunks);
-
 /* create category vehicle */
 $attr = array(
     xPDOTransport::UNIQUE_KEY => 'category',
@@ -80,19 +74,9 @@ $attr = array(
                     xPDOTransport::UPDATE_OBJECT => true,
                     xPDOTransport::UNIQUE_KEY => 'name',
                 ),
-                'Chunks' => array(
-                    xPDOTransport::PRESERVE_KEYS => false,
-                    xPDOTransport::UPDATE_OBJECT => true,
-                    xPDOTransport::UNIQUE_KEY => 'name',
-                ),
             ),
         ),
         'Snippets' => array(
-            xPDOTransport::PRESERVE_KEYS => false,
-            xPDOTransport::UPDATE_OBJECT => true,
-            xPDOTransport::UNIQUE_KEY => 'name',
-        ),
-        'Chunks' => array (
             xPDOTransport::PRESERVE_KEYS => false,
             xPDOTransport::UPDATE_OBJECT => true,
             xPDOTransport::UNIQUE_KEY => 'name',
@@ -111,21 +95,6 @@ $vehicle->resolve('file',array(
     'target' => "return MODX_CORE_PATH . 'components/';",
 ));
 $builder->putVehicle($vehicle);
-
-/* load system settings */
-$modx->log(modX::LOG_LEVEL_INFO,'Packaging in System Settings...');
-$settings = include $sources['data'].'transport.settings.php';
-if (empty($settings)) $modx->log(modX::LOG_LEVEL_ERROR,'Could not package in settings.');
-$attributes= array(
-    xPDOTransport::UNIQUE_KEY => 'key',
-    xPDOTransport::PRESERVE_KEYS => true,
-    xPDOTransport::UPDATE_OBJECT => false,
-);
-foreach ($settings as $setting) {
-    $vehicle = $builder->createVehicle($setting,$attributes);
-    $builder->putVehicle($vehicle);
-}
-unset($settings,$setting,$attributes);
 
 /* load lexicon strings */
 $modx->log(modX::LOG_LEVEL_INFO,'Packaging in lexicon...');
