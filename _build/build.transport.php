@@ -11,15 +11,13 @@ $mtime = $mtime[1] + $mtime[0];
 $tstart = $mtime;
 set_time_limit(0);
 
+/* define package names */
 define('PKG_NAME','Doodles');
 define('PKG_NAME_LOWER','doodles');
 define('PKG_VERSION','1.0');
 define('PKG_RELEASE','beta1');
 
-/* override with your own defines here (see build.config.sample.php) */
-require_once dirname(__FILE__) . '/build.config.php';
-require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
-
+/* define build paths */
 $root = dirname(dirname(__FILE__)).'/';
 $sources = array(
     'root' => $root,
@@ -29,10 +27,16 @@ $sources = array(
     'chunks' => $root.'core/components/'.PKG_NAME_LOWER.'/chunks/',
     'lexicon' => $root . 'core/components/'.PKG_NAME_LOWER.'/lexicon/',
     'docs' => $root.'core/components/'.PKG_NAME_LOWER.'/docs/',
+    'elements' => $root.'core/components/'.PKG_NAME_LOWER.'/elements/',
     'source_assets' => $root.'assets/components/'.PKG_NAME_LOWER,
     'source_core' => $root.'core/components/'.PKG_NAME_LOWER,
 );
 unset($root);
+
+/* override with your own defines here (see build.config.sample.php) */
+require_once $sources['build'] . 'build.config.php';
+require_once $sources['build'] . 'includes/functions.php';
+require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
 
 $modx= new modX();
 $modx->initialize('mgr');
@@ -118,9 +122,6 @@ $vehicle= $builder->createVehicle($menu,array (
     ),
 ));
 $modx->log(modX::LOG_LEVEL_INFO,'Adding in PHP resolvers...');
-$vehicle->resolve('php',array(
-    'source' => $sources['resolvers'] . 'resolve.paths.php',
-));
 $vehicle->resolve('php',array(
     'source' => $sources['resolvers'] . 'resolve.tables.php',
 ));

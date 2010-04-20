@@ -2,4 +2,5 @@ Changelog file for Doodles component.
 
 Doodles 1.0 ($LastChangedRevision$, $LastChangedDate$)
 ====================================
+- Fixed bugs with build, updated readme
 - Initial commit

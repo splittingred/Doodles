@@ -76,8 +76,8 @@ Ext.extend(Doodles.grid.Doodles,MODx.grid.Grid,{
 
     ,removeDoodle: function() {
         MODx.msg.confirm({
-            title: _('warning')
-            ,text: _('doodles.doodle_remove')
+            title: _('doodles.doodle_remove')
+            ,text: _('doodles.doodle_remove_confirm')
             ,url: this.config.url
             ,params: {
                 action: 'mgr/doodle/remove'

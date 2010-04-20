@@ -1,13 +1,8 @@
 --------------------
-3PC: Discuss
+3PC: Doodles
 --------------------
-Version: 0.1
-Since: December 16th, 2009
+Version: 1.0
+Since: April 20th, 2010
 Author: Shaun McCormick <shaun@collabpad.com>
 
-A native, threaded forum solution for MODx Revolution.
-
-This is an alpha prerelease. Therefore, things might break. But have fun. :)
-
-Feel free to suggest ideas/improvements/bugs on the forums. 
-Also, please see the JIRA project: http://svn.modxcms.com/jira/browse/DISCUSS
+A simple demo extra for creating robust 3rd-Party Components in MODx Revolution.
