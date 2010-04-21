@@ -30,7 +30,7 @@ class Doodles {
     }
 
     /**
-     * Initializes the TLC class into the proper context
+     * Initializes the class into the proper context
      *
      * @access public
      * @param string $ctx
@@ -47,7 +47,7 @@ class Doodles {
                 return $this->request->handleRequest();
             break;
             case 'connector':
-                if (!$this->modx->loadClass('tlc.request.doodlesConnectorRequest',$this->config['modelPath'],true,true)) {
+                if (!$this->modx->loadClass('doodles.request.doodlesConnectorRequest',$this->config['modelPath'],true,true)) {
                     echo 'Could not load connector request handler.'; die();
                 }
                 $this->request = new doodlesConnectorRequest($this);
