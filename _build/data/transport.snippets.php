@@ -13,6 +13,8 @@ $snippets[1]->fromArray(array(
     'description' => 'Displays a list of Doodles.',
     'snippet' => getSnippetContent($sources['elements'].'snippets/snippet.doodles.php'),
 ),'',true,true);
+$properties = include $sources['data'].'properties/properties.doodles.php';
+$snippets[1]->setProperties($properties);
 unset($properties);
 
 return $snippets;

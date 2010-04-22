@@ -2,6 +2,7 @@ Changelog file for Doodles component.
 
 Doodles 1.0 ($LastChangedRevision$, $LastChangedDate$)
 ====================================
+- Added default properties to Doodles snippet in build
 - Fixes to doodles class
 - Fixed bugs with build, updated readme
 - Initial commit
