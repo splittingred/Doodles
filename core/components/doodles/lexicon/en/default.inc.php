@@ -7,7 +7,7 @@
  */
 $_lang['doodle'] = 'Doodle';
 $_lang['doodles'] = 'Doodles';
-$_lang['doodles.desc'] = 'Manage your doodles.';
+$_lang['doodles.desc'] = 'Manage your doodles here.';
 $_lang['doodles.description'] = 'Description';
 $_lang['doodles.doodle_err_ae'] = 'A doodle with that name already exists.';
 $_lang['doodles.doodle_err_nf'] = 'Doodle not found.';
@@ -22,6 +22,7 @@ $_lang['doodles.doodle_update'] = 'Update Doodle';
 $_lang['doodles.downloads'] = 'Downloads';
 $_lang['doodles.location'] = 'Location';
 $_lang['doodles.management'] = 'Doodles Management';
+$_lang['doodles.management_desc'] = 'Manage your doodles here. You can edit them by either double-clicking on the grid or right-clicking on the respective row.';
 $_lang['doodles.name'] = 'Name';
 $_lang['doodles.search...'] = 'Search...';
 $_lang['doodles.top_downloaded'] = 'Top Downloaded Doodles';

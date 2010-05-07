@@ -22,7 +22,7 @@ Doodles.panel.Home = function(config) {
                 title: 'Doodles'
                 ,defaults: { autoHeight: true }
                 ,items: [{
-                    html: '<p>'+_('doodles.desc')+'</p><br />'
+                    html: '<p>'+_('doodles.management_desc')+'</p><br />'
                     ,border: false
                 },{
                     xtype: 'doodles-grid-doodles'
