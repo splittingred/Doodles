@@ -19,7 +19,7 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
 /* do output html */
 $output = '
 <h2>Doodles Installer</h2>
-<p>Thanks for installing Discuss! Please review the setup options below before proceeding.</p>
+<p>Thanks for installing Doodles! Please review the setup options below before proceeding.</p>
 <br />
 ';
 

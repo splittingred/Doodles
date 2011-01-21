@@ -10,7 +10,6 @@ class Doodle extends xPDOSimpleObject {
      * {@inheritDoc}
      */
     public function save($cacheFlag = null) {
-
         /* set createdon/editedon */
         $now = new DateTime();
         $type = $this->isNew() ? 'created' : 'edited';

@@ -18,7 +18,8 @@ $doodles = $modx->getCollection('Doodle',$c);
 /* iterate */
 $output = '';
 foreach ($doodles as $doodle) {
-    $output .= $dood->getChunk($tpl,$doodle->toArray());
+    $doodleArray = $doodle->toArray();
+    $output .= $dood->getChunk($tpl,$doodleArray);
 }
 
 return $output;

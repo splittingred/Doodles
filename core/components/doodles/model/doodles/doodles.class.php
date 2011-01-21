@@ -72,7 +72,7 @@ class Doodles {
         if (!isset($this->chunks[$name])) {
             $chunk = $this->_getTplChunk($name);
             if (empty($chunk)) {
-                $chunk = $this->modx->getObject('modChunk',array('name' => $name),true);
+                $chunk = $this->modx->getObject('modChunk',array('name' => $name));
                 if ($chunk == false) return false;
             }
             $this->chunks[$name] = $chunk->getContent();
@@ -88,13 +88,14 @@ class Doodles {
      * Returns a modChunk object from a template file.
      *
      * @access private
-     * @param string $name The name of the Chunk. Will parse to name.chunk.tpl
+     * @param string $name The name of the Chunk. Will parse to name.$postfix
+     * @param string $postfix The default postfix to search for chunks at.
      * @return modChunk/boolean Returns the modChunk object if found, otherwise
      * false.
      */
-    private function _getTplChunk($name) {
+    private function _getTplChunk($name,$postfix = '.chunk.tpl') {
         $chunk = false;
-        $f = $this->config['chunksPath'].strtolower($name).'.chunk.tpl';
+        $f = $this->config['chunksPath'].strtolower($name).$postfix;
         if (file_exists($f)) {
             $o = file_get_contents($f);
             $chunk = $this->modx->newObject('modChunk');

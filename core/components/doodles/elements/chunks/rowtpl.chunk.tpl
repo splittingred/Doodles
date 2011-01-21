@@ -1,1 +1,1 @@
-<li><strong>[[+name]]</strong> - [[+description]] <em> - [[+downloads]] downloads</em></li>
+<li><strong>[[+name]]</strong> - [[+description]]</li>
