@@ -4,4 +4,4 @@ This is the README file for the Extra described at:
 
 Thanks!
 
-Shaun McCormick - [splittingred](http://twitter.com/splittingred])
+Shaun McCormick - [splittingred](http://twitter.com/splittingred)
