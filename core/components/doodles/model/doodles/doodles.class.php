@@ -40,20 +40,12 @@ class Doodles {
             case 'mgr':
                 $this->modx->lexicon->load('doodles:default');
 
-                if (!$this->modx->loadClass('doodles.request.doodlesControllerRequest',$this->config['modelPath'],true,true)) {
+                if (!$this->modx->loadClass('doodlesControllerRequest',$this->config['modelPath'].'doodles/request/',true,true)) {
                     return 'Could not load controller request handler.';
                 }
                 $this->request = new doodlesControllerRequest($this);
                 return $this->request->handleRequest();
             break;
-            case 'connector':
-                if (!$this->modx->loadClass('doodles.request.doodlesConnectorRequest',$this->config['modelPath'],true,true)) {
-                    echo 'Could not load connector request handler.'; die();
-                }
-                $this->request = new doodlesConnectorRequest($this);
-                return $this->request->handle();
-            break;
-            default: break;
         }
         return true;
     }

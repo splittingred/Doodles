@@ -2,10 +2,10 @@ Doodles.grid.Doodles = function(config) {
     config = config || {};
     Ext.applyIf(config,{
         id: 'doodles-grid-doodles'
-        ,url: Doodles.config.connector_url
+        ,url: Doodles.config.connectorUrl
         ,baseParams: { action: 'mgr/doodle/getList' }
         ,save_action: 'mgr/doodle/updateFromGrid'
-        ,fields: ['id','name','description','menu']
+        ,fields: ['id','name','description']
         ,paging: true
         ,autosave: true
         ,remoteSort: true
@@ -39,9 +39,10 @@ Doodles.grid.Doodles = function(config) {
                     new Ext.KeyMap(cmp.getEl(), {
                         key: Ext.EventObject.ENTER
                         ,fn: function() {
-                            this.fireEvent('change',this.getValue());
+                            this.fireEvent('change',this);
                             this.blur();
-                            return true; }
+                            return true;
+                        }
                         ,scope: cmp
                     });
                 },scope:this}
@@ -60,6 +61,17 @@ Ext.extend(Doodles.grid.Doodles,MODx.grid.Grid,{
         this.getBottomToolbar().changePage(1);
         this.refresh();
     }
+    ,getMenu: function() {
+        var m = [{
+            text: _('doodles.doodle_update')
+            ,handler: this.updateDoodle
+        },'-',{
+            text: _('doodles.doodle_remove')
+            ,handler: this.removeDoodle
+        }];
+        this.addContextMenuItem(m);
+        return true;
+    }
     ,updateDoodle: function(btn,e) {
         if (!this.updateDoodleWindow) {
             this.updateDoodleWindow = MODx.load({
@@ -69,8 +81,9 @@ Ext.extend(Doodles.grid.Doodles,MODx.grid.Grid,{
                     'success': {fn:this.refresh,scope:this}
                 }
             });
+        } else {
+            this.updateDoodleWindow.setValues(this.menu.record);
         }
-        this.updateDoodleWindow.setValues(this.menu.record);
         this.updateDoodleWindow.show(e.target);
     }
 
@@ -96,7 +109,7 @@ Doodles.window.CreateDoodle = function(config) {
     config = config || {};
     Ext.applyIf(config,{
         title: _('doodles.doodle_create')
-        ,url: Doodles.config.connector_url
+        ,url: Doodles.config.connectorUrl
         ,baseParams: {
             action: 'mgr/doodle/create'
         }
@@ -122,7 +135,7 @@ Doodles.window.UpdateDoodle = function(config) {
     config = config || {};
     Ext.applyIf(config,{
         title: _('doodles.doodle_update')
-        ,url: Doodles.config.connector_url
+        ,url: Doodles.config.connectorUrl
         ,baseParams: {
             action: 'mgr/doodle/update'
         }

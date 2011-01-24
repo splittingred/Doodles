@@ -6,27 +6,30 @@
 $properties = array(
     array(
         'name' => 'tpl',
-        'desc' => 'The chunk for displaying each row.',
+        'desc' => 'prop_doodles.tpl_desc',
         'type' => 'textfield',
         'options' => '',
         'value' => 'rowTpl',
+        'lexicon' => 'doodles:properties',
     ),
     array(
         'name' => 'sort',
-        'desc' => 'The field to sort by.',
+        'desc' => 'prop_doodles.sort_desc',
         'type' => 'textfield',
         'options' => '',
         'value' => 'name',
+        'lexicon' => 'doodles:properties',
     ),
     array(
         'name' => 'dir',
-        'desc' => 'The direction to sort by.',
+        'desc' => 'prop_doodles.dir_desc',
         'type' => 'list',
         'options' => array(
-            array('text' => 'ASC','value' => 'ASC'),
-            array('text' => 'DESC','value' => 'DESC'),
+            array('text' => 'prop_doodles.ascending','value' => 'ASC'),
+            array('text' => 'prop_doodles.descending','value' => 'DESC'),
         ),
         'value' => 'DESC',
+        'lexicon' => 'doodles:properties',
     ),
 );
 return $properties;

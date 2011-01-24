@@ -12,14 +12,8 @@ Doodles.panel.Home = function(config) {
             ,bodyStyle: 'padding: 10px'
             ,defaults: { border: false ,autoHeight: true }
             ,border: true
-            ,stateful: true
-            ,stateId: 'doodles-home-tabpanel'
-            ,stateEvents: ['tabchange']
-            ,getState:function() {
-                return {activeTab:this.items.indexOf(this.getActiveTab())};
-            }
             ,items: [{
-                title: 'Doodles'
+                title: _('doodles')
                 ,defaults: { autoHeight: true }
                 ,items: [{
                     html: '<p>'+_('doodles.management_desc')+'</p><br />'
