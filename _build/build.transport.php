@@ -1,21 +1,19 @@
 <?php
 /**
- * Discuss build script
+ * Doodles build script
  *
  * @package doodles
  * @subpackage build
  */
-$mtime = microtime();
-$mtime = explode(' ', $mtime);
-$mtime = $mtime[1] + $mtime[0];
-$tstart = $mtime;
+$tstart = explode(' ', microtime());
+$tstart = $tstart[1] + $tstart[0];
 set_time_limit(0);
 
 /* define package names */
 define('PKG_NAME','Doodles');
 define('PKG_NAME_LOWER','doodles');
 define('PKG_VERSION','1.0');
-define('PKG_RELEASE','beta3');
+define('PKG_RELEASE','beta4');
 
 /* define build paths */
 $root = dirname(dirname(__FILE__)).'/';
@@ -35,7 +33,6 @@ unset($root);
 
 /* override with your own defines here (see build.config.sample.php) */
 require_once $sources['build'] . 'build.config.php';
-require_once $sources['build'] . 'includes/functions.php';
 require_once MODX_CORE_PATH . 'model/modx/modx.class.php';
 
 $modx= new modX();
@@ -67,19 +64,6 @@ $attr = array(
     xPDOTransport::UPDATE_OBJECT => true,
     xPDOTransport::RELATED_OBJECTS => true,
     xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
-        'Children' => array(
-            xPDOTransport::PRESERVE_KEYS => false,
-            xPDOTransport::UPDATE_OBJECT => true,
-            xPDOTransport::UNIQUE_KEY => 'category',
-            xPDOTransport::RELATED_OBJECTS => true,
-            xPDOTransport::RELATED_OBJECT_ATTRIBUTES => array (
-                'Snippets' => array(
-                    xPDOTransport::PRESERVE_KEYS => false,
-                    xPDOTransport::UPDATE_OBJECT => true,
-                    xPDOTransport::UNIQUE_KEY => 'name',
-                ),
-            ),
-        ),
         'Snippets' => array(
             xPDOTransport::PRESERVE_KEYS => false,
             xPDOTransport::UPDATE_OBJECT => true,
@@ -130,24 +114,17 @@ $builder->setPackageAttributes(array(
     'license' => file_get_contents($sources['docs'] . 'license.txt'),
     'readme' => file_get_contents($sources['docs'] . 'readme.txt'),
     'changelog' => file_get_contents($sources['docs'] . 'changelog.txt'),
-    /*
     'setup-options' => array(
         'source' => $sources['build'].'setup.options.php',
     ),
-     */
 ));
 
 /* zip up package */
 $modx->log(modX::LOG_LEVEL_INFO,'Packing up transport package zip...');
 $builder->pack();
 
-$mtime= microtime();
-$mtime= explode(" ", $mtime);
-$mtime= $mtime[1] + $mtime[0];
-$tend= $mtime;
-$totalTime= ($tend - $tstart);
-$totalTime= sprintf("%2.4f s", $totalTime);
-
+$tend= explode(" ", microtime());
+$tend= $tend[1] + $tend[0];
+$totalTime= sprintf("%2.4f s",($tend - $tstart));
 $modx->log(modX::LOG_LEVEL_INFO,"\n<br />Package Built.<br />\nExecution time: {$totalTime}\n");
-
 exit ();

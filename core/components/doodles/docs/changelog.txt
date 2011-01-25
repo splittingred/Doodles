@@ -1,6 +1,6 @@
 Changelog file for Doodles component.
 
-Doodles 1.0 ($LastChangedRevision$, $LastChangedDate$)
+Doodles 1.0
 ====================================
 - Updating text, ready to build
 - Added default properties to Doodles snippet in build
