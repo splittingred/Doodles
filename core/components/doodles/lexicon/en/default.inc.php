@@ -15,6 +15,7 @@ $_lang['doodles.doodle_err_ns'] = 'Doodle not specified.';
 $_lang['doodles.doodle_err_ns_name'] = 'Please specify a name for the doodle.';
 $_lang['doodles.doodle_err_remove'] = 'An error occurred while trying to remove the doodle.';
 $_lang['doodles.doodle_err_save'] = 'An error occurred while trying to save the doodle.';
+$_lang['doodles.doodle_err_data'] = 'Invalid data.';
 $_lang['doodles.doodle_create'] = 'Create New Doodle';
 $_lang['doodles.doodle_remove'] = 'Remove Doodle';
 $_lang['doodles.doodle_remove_confirm'] = 'Are you sure you want to remove this doodle?';
