@@ -13,7 +13,7 @@ set_time_limit(0);
 define('PKG_NAME','Doodles');
 define('PKG_NAME_LOWER','doodles');
 define('PKG_VERSION','1.0');
-define('PKG_RELEASE','beta4');
+define('PKG_RELEASE','rc1');
 
 /* define build paths */
 $root = dirname(dirname(__FILE__)).'/';
