@@ -30,6 +30,9 @@ Doodles.grid.Doodles = function(config) {
             ,editor: { xtype: 'textfield' }
         }]
         ,tbar: [{
+            text: _('doodles.doodle_create')
+            ,handler: { xtype: 'doodles-window-doodle-create' ,blankValues: true }
+        },'->',{
             xtype: 'textfield'
             ,id: 'doodles-search-filter'
             ,emptyText: _('doodles.search...')
@@ -47,9 +50,6 @@ Doodles.grid.Doodles = function(config) {
                     });
                 },scope:this}
             }
-        },{
-            text: _('doodles.doodle_create')
-            ,handler: { xtype: 'doodles-window-doodle-create' ,blankValues: true }
         }]
     });
     Doodles.grid.Doodles.superclass.constructor.call(this,config)
@@ -62,15 +62,13 @@ Ext.extend(Doodles.grid.Doodles,MODx.grid.Grid,{
         this.refresh();
     }
     ,getMenu: function() {
-        var m = [{
+        return [{
             text: _('doodles.doodle_update')
             ,handler: this.updateDoodle
         },'-',{
             text: _('doodles.doodle_remove')
             ,handler: this.removeDoodle
         }];
-        this.addContextMenuItem(m);
-        return true;
     }
     ,updateDoodle: function(btn,e) {
         if (!this.updateDoodleWindow) {
@@ -81,9 +79,8 @@ Ext.extend(Doodles.grid.Doodles,MODx.grid.Grid,{
                     'success': {fn:this.refresh,scope:this}
                 }
             });
-        } else {
-            this.updateDoodleWindow.setValues(this.menu.record);
         }
+        this.updateDoodleWindow.setValues(this.menu.record);
         this.updateDoodleWindow.show(e.target);
     }
 
@@ -117,12 +114,12 @@ Doodles.window.CreateDoodle = function(config) {
             xtype: 'textfield'
             ,fieldLabel: _('doodles.name')
             ,name: 'name'
-            ,width: 300
+            ,anchor: '100%'
         },{
             xtype: 'textarea'
             ,fieldLabel: _('doodles.description')
             ,name: 'description'
-            ,width: 300
+            ,anchor: '100%'
         }]
     });
     Doodles.window.CreateDoodle.superclass.constructor.call(this,config);
@@ -146,12 +143,12 @@ Doodles.window.UpdateDoodle = function(config) {
             xtype: 'textfield'
             ,fieldLabel: _('doodles.name')
             ,name: 'name'
-            ,width: 300
+            ,anchor: '100%'
         },{
             xtype: 'textarea'
             ,fieldLabel: _('doodles.description')
             ,name: 'description'
-            ,width: 300
+            ,anchor: '100%'
         }]
     });
     Doodles.window.UpdateDoodle.superclass.constructor.call(this,config);

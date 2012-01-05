@@ -19,6 +19,7 @@ class Doodles {
             'corePath' => $basePath,
             'modelPath' => $basePath.'model/',
             'processorsPath' => $basePath.'processors/',
+            'templatesPath' => $basePath.'templates/',
             'chunksPath' => $basePath.'elements/chunks/',
             'jsUrl' => $assetsUrl.'js/',
             'cssUrl' => $assetsUrl.'css/',
