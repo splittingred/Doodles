@@ -4,10 +4,7 @@
  * @subpackage controllers
  */
 require_once dirname(__FILE__) . '/model/doodles/doodles.class.php';
-class IndexManagerController extends modExtraManagerController {
-    public static function getDefaultController() { return 'home'; }
-}
-abstract class DoodlesManagerController extends modManagerController {
+abstract class DoodlesManagerController extends modExtraManagerController {
     /** @var Doodles $doodles */
     public $doodles;
     public function initialize() {
@@ -26,4 +23,11 @@ abstract class DoodlesManagerController extends modManagerController {
         return array('doodles:default');
     }
     public function checkPermissions() { return true;}
+}
+/**
+ * @package doodles
+ * @subpackage controllers
+ */
+class IndexManagerController extends DoodlesManagerController {
+    public static function getDefaultController() { return 'home'; }
 }
