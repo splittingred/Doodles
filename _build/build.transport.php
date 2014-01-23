@@ -108,7 +108,7 @@ $vehicle->resolve('php',array(
 $builder->putVehicle($vehicle);
 unset($vehicle,$menu);
 
-/* now pack in the license file, readme and setup options */
+/* now pack in the license file, readme, changelog and setup options */
 $modx->log(modX::LOG_LEVEL_INFO,'Adding package attributes and setup options...');
 $builder->setPackageAttributes(array(
     'license' => file_get_contents($sources['docs'] . 'license.txt'),
