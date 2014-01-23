@@ -27,6 +27,6 @@ $menu->fromArray(array(
     'handler' => '',
 ),'',true,true);
 $menu->addOne($action);
-unset($menus);
+unset($action);
 
 return $menu;
