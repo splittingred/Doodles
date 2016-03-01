@@ -10,7 +10,7 @@ $action->fromArray(array(
     'id' => 1,
     'namespace' => 'doodles',
     'parent' => 0,
-    'controller' => 'controllers/index',
+    'controller' => 'index',
     'haslayout' => true,
     'lang_topics' => 'doodles:default',
     'assets' => '',
