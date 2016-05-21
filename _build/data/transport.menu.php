@@ -10,7 +10,7 @@ $action->fromArray(array(
     'id' => 1,
     'namespace' => 'doodles',
     'parent' => 0,
-    'controller' => 'controllers/index',
+    'controller' => 'index',
     'haslayout' => true,
     'lang_topics' => 'doodles:default',
     'assets' => '',
@@ -25,8 +25,10 @@ $menu->fromArray(array(
     'menuindex' => 0,
     'params' => '',
     'handler' => '',
+    'action' => 'index',
+    'namespace' => 'doodles'
 ),'',true,true);
-$menu->addOne($action);
+// $menu->addOne($action);  -- this is how it worked in older modx
 unset($menus);
 
 return $menu;
